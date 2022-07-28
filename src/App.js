@@ -1,25 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
+import HeaderMain from "./header/HeaderMain";
+import {Route, Routes} from "react-router-dom";
+import MainPage from "./main/MainPage";
+import TheoryPage from "./content/theories/TheoryPage";
+import PracticePage from "./content/practice/PracticePage";
+import SupportPage from "./main/SupportPage";
+import CaesarPage from "./content/practice/caesar/CaesarPage";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div>
+            <HeaderMain/>
+            <div className="bgcolor">
+                <div className="container">
+                    <Routes>
+                        <Route path="/" element={<MainPage/>}/>
+                        <Route path="/theory" element={<TheoryPage/>}/>
+                        <Route path="/practice" element={<PracticePage/>}/>
+                        <Route path="/practice/caesar" element={<CaesarPage/>}/>
+                        <Route path="/support" element={<SupportPage/>}/>
+                    </Routes>
+                </div>
+            </div>
+        </div>
+    );
 }
 
 export default App;
